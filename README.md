@@ -186,21 +186,6 @@ ResAnDi/
     - `_train.train`
   - **Purpose**: Segment-wise analysis of trajectory importance using different network layers
 
-## Key Features
-
-### Custom 1D ResNet Architecture
-- Modified ResNet18 for time series classification
-- 1×k convolutions instead of traditional 2D convolutions
-- Support for varying input sequence lengths
-- Feature map extraction for interpretability
-
-### Stochastic Process Generation
-- Fractional Brownian Motion (fBM)
-- Standard Brownian Motion
-- Continuous Time Random Walk (CTRW)
-- Annealed Transit Time Model (ATTM)
-- Lévy Walk processes
-
 ## Utilities Function Reference
 
 ### Core Modules
@@ -269,6 +254,7 @@ ResAnDi/
 
 ## Results Storage
 
-- Model checkpoints and final weights are saved in `saved_models/`
+- Model checkpoints and final weights are saved in `model_ckpt/` and  `saved_models/`
+- Grad-CAM analysis resutls are saved in `Grad-CAM/`
 - Analysis results are organized in `analysis_results/` with subdirectories for each analysis type
 - Visualizations are saved in `figures/` as PDF and SVG files
