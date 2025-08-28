@@ -1,0 +1,65 @@
+[project]
+name = "resandi"
+version = "1.0.0"
+description = "Residual Network Analysis for Anomalous Diffusion"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "ResAnDi Development Team"},
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "torch>=1.12.0",
+    "torchvision>=0.13.0",
+    "numpy>=1.21.0",
+    "scipy>=1.8.0",
+    "pandas>=1.4.0",
+    "scikit-learn>=1.1.0",
+    "matplotlib>=3.5.0",
+    "seaborn>=0.11.0",
+    "plotly>=5.0.0",
+    "tqdm>=4.64.0",
+    "captum>=0.6.0",
+    "stochastic>=0.6.0",
+    "brokenaxes>=0.4.0",
+    "jupyter>=1.0.0",
+    "ipykernel>=6.0.0",
+    "ipython>=8.0.0",
+    "typing_extensions>=4.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=22.0.0",
+    "isort>=5.10.0",
+    "flake8>=5.0.0",
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["utils*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38', 'py39', 'py310', 'py311']
+
+[tool.isort]
+profile = "black"
+line_length = 88
