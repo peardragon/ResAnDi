@@ -23,6 +23,18 @@ uv pip install -r requirements.txt
 
 Refer [SETUP.md](./SETUP.md) for detail.
 
+## Playground
+
+**`playground.ipynb`** notebook provides a simplified demonstration of the ResAnDi workflow. It includes:
+1. **Dataset Generation** - Create synthetic trajectories from diffusion models
+2. **Trajectory Sample Visualization** - Visualize sample trajectories
+3. **Data Preprocessing** - Prepare data for training
+4. **Model Training** - Train ResNet classifier on trajectory data
+5. **Grad-CAM Analysis** - Generate attribution maps
+6. **Visualization** - Plot trajectories with Grad-CAM overlays
+7. **t-SNE Analysis** - Dimensionality reduction and clustering visualization
+
+
 ## Directory Structure
 
 ```
