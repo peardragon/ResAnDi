@@ -258,6 +258,7 @@ from brokenaxes import brokenaxes
 import matplotlib.ticker as mticker
 
 
+
 def plot_erasing_results(random_results, erased_results, noise=False):
     if noise==False:
         save_path = "./figures/erasing_method_results_noiseless.pdf"
@@ -273,27 +274,31 @@ def plot_erasing_results(random_results, erased_results, noise=False):
     # brokenaxes configuration (hide 0~1 section, only show ymin~ymax)
     bax = brokenaxes(ylims=((0, 1), (ymin, ymax)), hspace=.05)  
 
-    x = [10*i for i in range(len(random_results))]
+    x = [10*i for i in range(len(random_results))]  # [0, 10, 20, ..., 90]
     bar_width = 10
 
     # Average line
     bax.hlines(np.mean(random_y), xmin=-10, xmax=110, label="Random", ls="--", color="gray")
     # Bar
     bax.bar(x, y, width=bar_width, label="Grad-CAM based", color="red", alpha=0.5)
-
-    # X-axis configuration
-    xticks = [10*i for i in range(11)]
-    bax.set_xticks(np.array(xticks) - bar_width/2)
-    bax.set_xticklabels([f"{tick}" for tick in xticks])
+    for ax in bax.axs:
+        ax.xaxis.set_visible(False)
+        ax.spines['top'].set_visible(True)
+        ax.spines['right'].set_visible(True)
 
     bax.set_xlim(-10, 100)
+    
+    xticks = [10*i for i in range(11)]  # [0, 10, 20, ..., 100]
+    plt.xticks(np.array(xticks) - bar_width / 2, [f"{tick}" for tick in xticks])
+    plt.xlim(-10, 100)
+    plt.gca().spines['top'].set_visible(True)
+    plt.gca().spines['right'].set_visible(True)
+
     bax.set_ylabel("Accuracy (%)")
     bax.set_xlabel("Percentile")
     bax.legend()
     plt.savefig(save_path)
     plt.show()
-
-
 
 
 def _erasing_method_vis(p1s, p2s, random="Pure", noise=False):
