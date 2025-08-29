@@ -15,6 +15,7 @@ import torch
 ## ignore warning
 import warnings
 warnings.filterwarnings("ignore")
+np.random.seed(42)
 
 def divide_trajectory(trajectory):
     subtrajectories = []
@@ -267,7 +268,6 @@ def plot_erasing_results(random_results, erased_results, noise=False):
 
     y = np.array(erased_results).flatten() * 100
     random_y = np.array(random_results).flatten() * 100
-
     ymin = np.min(y) - 1
     ymax = np.max(y) + 1
 
